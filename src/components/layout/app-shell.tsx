@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@/components/ui/separator";
+import { MockModeBadge } from "@/components/mock/mock-mode-badge";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -13,16 +14,19 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </Link>
             <Separator orientation="vertical" className="h-5" />
             <nav className="hidden md:flex items-center gap-4 text-sm text-muted-foreground">
-              <Link href="/pricing">Pricing</Link>
               <Link href="/dashboard">Dashboard</Link>
+              <Link href="/invoices">Invoices</Link>
+              <Link href="/clients">Clients</Link>
+              <Link href="/pricing">Pricing</Link>
             </nav>
           </div>
           <div className="flex items-center gap-2">
+            <MockModeBadge />
             <ThemeToggle />
           </div>
         </div>
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+      <main className="mx-auto max-w-6xl px-4">{children}</main>
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-muted-foreground">
           © {new Date().getFullYear()} Kolekto
